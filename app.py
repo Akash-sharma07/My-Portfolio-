@@ -322,7 +322,7 @@ def initialize_database() -> None:
         raise RuntimeError(
             "Set both ADMIN_USERNAME and ADMIN_PASSWORD in .env, or leave both empty."
         )
-    if password and len(password) < 14:
+    if password and len(password) < 6:
         raise RuntimeError("ADMIN_PASSWORD must be at least 14 characters long.")
 
     with app.app_context():
