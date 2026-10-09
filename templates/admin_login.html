@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Admin Sign In | Akash Sharma Portfolio{% endblock %}
+{% block description %}Private sign-in for the portfolio message inbox.{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_login.css') }}">{% endblock %}
+{% block content %}
+<section class="admin-login-section section-space"><div class="admin-login-card reveal"><p class="eyebrow">PRIVATE INBOX</p><h1>Admin <em>sign in</em></h1><p>Sign in to view messages submitted through the portfolio contact form.</p>
+  <form method="post" action="{{ url_for('admin_login') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="field"><label for="username">Username</label><input id="username" name="username" type="text" autocomplete="username" required maxlength="80"></div>
+    <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required></div>
+    <button class="button button-dark form-submit" type="submit">Sign In <span aria-hidden="true">→</span></button>
+  </form>
+  <p class="login-note">Admin credentials are configured in the local <code>.env</code> file.</p>
+</div></section>
+{% endblock %}

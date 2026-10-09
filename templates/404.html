@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Page Not Found | Akash Sharma{% endblock %}
+{% block description %}This page could not be found.{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/error.css') }}">{% endblock %}
+{% block content %}<section class="error-section section-space"><div class="error-card"><p class="eyebrow">404 — PAGE NOT FOUND</p><h1>This page took<br><em>a different path.</em></h1><p>The address may have changed or the page may no longer be here.</p><a class="button button-dark" href="{{ url_for('home') }}">Back to Home <span aria-hidden="true">↗</span></a></div></section>{% endblock %}

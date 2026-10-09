@@ -1,0 +1,24 @@
+.admin-section { min-height: 68vh; background: var(--surface-muted); }
+.admin-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 25px; margin-bottom: 29px; }
+.admin-heading h1 { margin: 0 0 10px; font-size: clamp(40px, 5vw, 58px); }
+.admin-heading p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: 13px; }
+.admin-heading form { flex: 0 0 auto; }
+.admin-heading .button { min-height: 42px; }
+.message-count { margin-bottom: 12px; color: var(--slate); font-size: 11px; font-weight: 600; }
+.inbox-list { display: grid; gap: 12px; }
+.inbox-card { padding: 23px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); }
+.inbox-card-head { display: flex; justify-content: space-between; gap: 20px; }
+.inbox-card-head h2 { margin: 0 0 2px; font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: 0; }
+.inbox-card-head a { color: var(--blue); font-size: 12px; }
+.inbox-card-head time { color: #98a2b3; font-size: 10px; white-space: nowrap; }
+.purpose-pill { display: inline-flex; margin-top: 15px; padding: 5px 9px; border-radius: 3px; background: var(--blue-soft); color: #1e40af; font-size: 9px; font-weight: 600; }
+.inbox-message { margin: 15px 0 0; color: #475467; font-size: 13px; line-height: 1.8; white-space: pre-wrap; overflow-wrap: anywhere; }
+.inbox-empty { padding: 65px 20px; border: 1px dashed #cfd5dd; border-radius: 5px; background: rgba(255,255,255,.55); text-align: center; }
+.inbox-empty > span { color: var(--blue); font-size: 24px; }
+.inbox-empty h2 { margin: 8px 0; font-size: 27px; }
+.inbox-empty p { margin: 0; color: var(--muted); font-size: 12px; }
+@media (max-width: 560px) {
+  .admin-heading { align-items: flex-start; flex-direction: column; }
+  .inbox-card { padding: 19px; }
+  .inbox-card-head { align-items: flex-start; flex-direction: column; gap: 8px; }
+}

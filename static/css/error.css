@@ -1,0 +1,5 @@
+.error-section { min-height: 68vh; display: grid; place-items: center; }
+.error-card { max-width: 650px; padding: 20px; text-align: center; }
+.error-card .eyebrow { justify-content: center; }
+.error-card h1 { margin: 0 0 16px; font-size: clamp(47px, 7vw, 72px); }
+.error-card > p:not(.eyebrow) { max-width: 440px; margin: 0 auto 25px; color: var(--muted); font-size: 14px; }

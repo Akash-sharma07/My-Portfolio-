@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Projects | Akash Sharma — AI/ML Engineer &amp; Data Scientist{% endblock %}
+{% block description %}Selected projects by Akash Sharma in conversational AI, flight database analysis and book and movie recommendations.{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css') }}">{% endblock %}
+{% block content %}
+<section class="page-hero section-space">
+  <div class="container page-hero-inner reveal"><p class="eyebrow">SELECTED PROJECTS</p><h1>Learning by<br><em>making things.</em></h1><p class="page-lede">A selection of projects where I have brought together data, Machine Learning and application development.</p></div>
+</section>
+<section class="projects-section section-space">
+  <div class="container">
+    <!-- PROJECT CONTENT START: update these cards alongside their project detail sections. -->
+    <div class="projects-grid">
+      <a class="project-card reveal" href="{{ url_for('project_detail', slug='ai-admissions-chatbot') }}">
+        <div class="project-art project-art-chatbot"><img class="project-art-image" src="{{ url_for('static', filename='images/projects/chatbot/admissions-chatbot.png') }}" alt="ITM University Gwalior admissions chatbot in conversation with a student"></div>
+        <div class="project-card-body"><div class="project-card-top"><span>01 / CONVERSATIONAL AI</span><span class="project-arrow" aria-hidden="true">↗</span></div><h2>AI Admissions Chatbot</h2><p>Conversational answers to prospective student queries using ITM University-specific PDF and document data.</p><div class="tag-list"><span>LangChain</span><span>LangGraph</span><span>Streamlit</span></div><span class="card-view">View Project <span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="project-card reveal" data-reveal-delay="80" href="{{ url_for('project_detail', slug='recommendify') }}">
+        <div class="project-art project-art-recommendify"><img class="project-art-image" src="{{ url_for('static', filename='images/projects/recommendify/screenshot.png') }}" alt="Recommendify book and movie recommendation website"></div>
+        <div class="project-card-body"><div class="project-card-top"><span>02 / RECOMMENDER SYSTEMS</span><span class="project-arrow" aria-hidden="true">↗</span></div><h2>Recommendify</h2><p>A Flask platform bringing book and movie recommendation systems together in one application.</p><div class="tag-list"><span>TF-IDF</span><span>Cosine Similarity</span><span>Flask</span><span>TMDB API</span></div><span class="card-view">View Project <span aria-hidden="true">→</span></span></div>
+      </a>
+      <a class="project-card reveal" data-reveal-delay="140" href="{{ url_for('project_detail', slug='flight-database-analysis') }}">
+        <div class="project-art project-art-flight"><img class="project-art-image" src="{{ url_for('static', filename='images/projects/flight-analysis/flight-database-analysis.jpg') }}" alt="Airplane flying over clouds for the flight database analysis project"></div>
+        <div class="project-card-body"><div class="project-card-top"><span>03 / DATA APPLICATION</span><span class="project-arrow" aria-hidden="true">↗</span></div><h2>Flight Database Analysis</h2><p>An interactive application to extract, process and explore flight-related data from a MySQL database.</p><div class="tag-list"><span>Python</span><span>MySQL</span><span>Pandas</span><span>Streamlit</span></div><span class="card-view">View Project <span aria-hidden="true">→</span></span></div>
+      </a>
+    </div>
+    <!-- PROJECT CONTENT END -->
+  </div>
+</section>
+{% endblock %}

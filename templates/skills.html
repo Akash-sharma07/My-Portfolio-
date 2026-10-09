@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Skills | Akash Sharma — AI/ML Engineer &amp; Data Scientist{% endblock %}
+{% block description %}Explore Akash Sharma's skills across programming, Machine Learning, Deep Learning, Generative AI, data analytics and development tools.{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/skills.css') }}">{% endblock %}
+{% block content %}
+<section class="page-hero section-space">
+  <div class="container page-hero-inner reveal"><p class="eyebrow">TOOLS &amp; FOUNDATIONS</p><h1>Skills I use to<br><em>keep learning.</em></h1><p class="page-lede">A growing toolkit across AI/ML, data work and application development. These are areas I have studied and practiced through coursework and projects.</p></div>
+</section>
+<section class="skills-section section-space">
+  <div class="container">
+    <!-- SKILLS CONTENT START: edit the technology lists below as your toolkit grows. -->
+    <div class="skills-grid">
+      <article class="skill-card skill-card-feature reveal"><span class="skill-index">01</span><div><p class="eyebrow">PROGRAMMING</p><h2>Programming</h2><div class="skill-tags"><span>Python</span><span>C</span><span>Object-Oriented Programming</span></div></div></article>
+      <article class="skill-card reveal" data-reveal-delay="60"><span class="skill-index">02</span><div><p class="eyebrow">MACHINE LEARNING</p><h2>Machine Learning</h2><div class="skill-tags"><span>Scikit-learn</span><span>Natural Language Processing</span><span>Supervised Learning</span><span>Regression</span><span>Classification</span><span>EDA</span><span>Feature Engineering</span><span>Feature Selection</span><span>Model Evaluation</span><span>Cross-Validation</span></div></div></article>
+      <article class="skill-card reveal"><span class="skill-index">03</span><div><p class="eyebrow">DEEP LEARNING</p><h2>Deep Learning</h2><div class="skill-tags"><span>TensorFlow</span><span>Keras</span><span>ANN</span><span>CNN</span><span>RNN</span><span>Transformer</span></div></div></article>
+      <article class="skill-card skill-card-feature reveal" data-reveal-delay="60"><span class="skill-index">04</span><div><p class="eyebrow">GENERATIVE AI &amp; LLMS</p><h2>Generative AI &amp; LLMs</h2><div class="skill-tags"><span>LLMs</span><span>Prompt Engineering</span><span>LangChain</span><span>LangGraph</span><span>RAG</span><span>FAISS</span><span>Model Context Protocol (MCP)</span></div></div></article>
+      <article class="skill-card reveal"><span class="skill-index">05</span><div><p class="eyebrow">DATA ANALYTICS &amp; BI</p><h2>Data Analytics &amp; BI</h2><div class="skill-tags"><span>SQL</span><span>MySQL</span><span>PyMySQL</span><span>Data Visualization</span></div></div></article>
+      <article class="skill-card reveal" data-reveal-delay="60"><span class="skill-index">06</span><div><p class="eyebrow">PYTHON LIBRARIES</p><h2>Python Libraries</h2><div class="skill-tags"><span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span><span>BeautifulSoup</span><span>Requests</span><span>aiohttp</span></div></div></article>
+      <article class="skill-card skill-card-wide reveal"><span class="skill-index">07</span><div><p class="eyebrow">TOOLS &amp; PLATFORMS</p><h2>Tools &amp; Platforms</h2><div class="skill-tags"><span>Git</span><span>GitHub</span><span>Jupyter Notebook</span><span>VS Code</span><span>Streamlit</span><span>Flask</span><span>FastAPI</span><span>Docker</span><span>HTML</span><span>CSS</span></div></div></article>
+    </div>
+    <!-- SKILLS CONTENT END -->
+  </div>
+</section>
+<section class="skills-note"><div class="container skills-note-inner"><span class="note-icon">↗</span><p>Skills grow through use. <strong>Explore the projects</strong> to see how I have applied this toolkit.</p><a class="text-link" href="{{ url_for('projects') }}">View Projects <span aria-hidden="true">→</span></a></div></section>
+{% endblock %}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fa">
+  <title>{% block title %}Akash Sharma | AI/ML Engineer &amp; Data Scientist{% endblock %}</title>
+  <meta name="description" content="{% block description %}Akash Sharma — AI/ML Engineer and Data Scientist building practical Machine Learning, Deep Learning and Generative AI applications.{% endblock %}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ self.title()|striptags|trim }}">
+  <meta property="og:description" content="{% block og_description %}AI/ML Engineer and Data Scientist building practical Machine Learning, Deep Learning and Generative AI applications.{% endblock %}">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  {% block page_css %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="wordmark" href="{{ url_for('home') }}" aria-label="Akash Sharma home">AKASH <span>SHARMA</span><i>.</i></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span><span></span>
+      </button>
+      <div class="nav-panel" id="primary-navigation">
+        <div class="nav-links">
+          <a class="nav-link {% if active_page == 'home' %}is-active{% endif %}" {% if active_page == 'home' %}aria-current="page"{% endif %} href="{{ url_for('home') }}">Home</a>
+          <a class="nav-link {% if active_page == 'about' %}is-active{% endif %}" {% if active_page == 'about' %}aria-current="page"{% endif %} href="{{ url_for('about') }}">About</a>
+          <a class="nav-link {% if active_page == 'skills' %}is-active{% endif %}" {% if active_page == 'skills' %}aria-current="page"{% endif %} href="{{ url_for('skills') }}">Skills</a>
+          <a class="nav-link {% if active_page == 'projects' %}is-active{% endif %}" {% if active_page == 'projects' %}aria-current="page"{% endif %} href="{{ url_for('projects') }}">Projects</a>
+          <a class="nav-link {% if active_page == 'contact' %}is-active{% endif %}" {% if active_page == 'contact' %}aria-current="page"{% endif %} href="{{ url_for('contact') }}">Talk With Me</a>
+        </div>
+        <a class="button button-dark nav-resume" href="{{ url_for('resume') }}" {% if not resume_available %}title="Add your PDF at static/Akash_Sharma_Resume.pdf"{% endif %}>Download Resume <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    {% with notices = get_flashed_messages(with_categories=true) %}
+      {% if notices %}
+        <div class="flash-stack container" role="status" aria-live="polite">
+          {% for category, notice in notices %}<p class="flash flash-{{ category }}">{{ notice }}</p>{% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="wordmark footer-wordmark" href="{{ url_for('home') }}">AKASH <span>SHARMA</span><i>.</i></a>
+        <p class="footer-role">AI/ML Engineer <span aria-hidden="true">|</span> Data Scientist</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-socials" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/akash-sharma8017/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
+          <a href="https://github.com/Akash-sharma07" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
+          <a href="mailto:akash8017sharma@gmail.com" aria-label="Email Akash Sharma">Email</a>
+        </div>
+        <p class="copyright">© 2026 Akash Sharma</p>
+      </div>
+    </div>
+  </footer>
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>

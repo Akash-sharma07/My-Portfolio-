@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Message Inbox | Akash Sharma Portfolio{% endblock %}
+{% block description %}Private portfolio message inbox.{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">{% endblock %}
+{% block content %}
+<section class="admin-section section-space"><div class="container">
+  <div class="admin-heading"><div><p class="eyebrow">PRIVATE INBOX</p><h1>Visitor <em>messages</em></h1><p>Messages submitted through Talk With Me.</p></div><form method="post" action="{{ url_for('admin_logout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="button button-outline" type="submit">Sign Out <span aria-hidden="true">↗</span></button></form></div>
+  {% if messages %}<div class="message-count">{{ messages|length }} message{% if messages|length != 1 %}s{% endif %}</div><div class="inbox-list">{% for message in messages %}<article class="inbox-card"><div class="inbox-card-head"><div><h2>{{ message.name }}</h2><a href="mailto:{{ message.email }}">{{ message.email }}</a></div><time datetime="{{ message.created_at.isoformat() }}">{{ message.created_at.strftime('%b %d, %Y · %I:%M %p') }}</time></div><span class="purpose-pill">{{ message.purpose }}</span><p class="inbox-message">{{ message.message }}</p></article>{% endfor %}</div>
+  {% else %}<div class="inbox-empty"><span aria-hidden="true">✳</span><h2>No messages yet</h2><p>New contact form submissions will appear here.</p></div>{% endif %}
+</div></section>
+{% endblock %}

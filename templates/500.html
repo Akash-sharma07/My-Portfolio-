@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Something Went Wrong | Akash Sharma{% endblock %}
+{% block description %}The page could not be loaded right now.{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/error.css') }}">{% endblock %}
+{% block content %}<section class="error-section section-space"><div class="error-card"><p class="eyebrow">500 — SERVER ERROR</p><h1>A small pause<br>in the <em>process.</em></h1><p>Something went wrong while loading this page. Please try again in a moment.</p><a class="button button-dark" href="{{ url_for('home') }}">Back to Home <span aria-hidden="true">↗</span></a></div></section>{% endblock %}
