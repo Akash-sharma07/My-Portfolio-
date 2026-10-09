@@ -179,6 +179,57 @@ SELECT id, name, purpose, created_at FROM message ORDER BY created_at DESC;
 
 Then open `/admin/login`, sign in with the configured admin account, and confirm the message appears in the protected inbox. Records in the original database are not copied by `db.create_all()`, and that database remains untouched. If you need to move records, first make and verify a backup, then copy the `message` and `admin` rows into a staging MySQL database with an explicit migration that stores `created_at` as UTC and preserves each `password_hash` exactly. Compare row counts and sample records, test an admin login, and only then switch production traffic. No data transfer was performed for this change.
 
+## Diagnose Admin Login on Render and Aiven
+
+The login route looks up the submitted username in the `admin` table and checks the submitted password against its Werkzeug hash. The generic sign-in message means either no row matched that username or its hash did not match. At startup, `ADMIN_USERNAME` and `ADMIN_PASSWORD` create an account only when that username is absent; changing those variables does not reset an existing account's hash.
+
+The `manage_admin.py` tool reports whether the Aiven connection works, whether the `admin` table exists, and which usernames are present. It never prints password hashes or accepts a password as a command-line argument. It refuses local/non-Aiven hosts and requires the Aiven CA certificate before any connection.
+
+1. In Aiven Console, download your service's CA certificate.
+2. In the Render web service's **Environment** page, upload it as a secret file (for example, `aiven-ca.pem`). Render makes it available at `/etc/secrets/aiven-ca.pem`; add `AIVEN_CA_CERT=/etc/secrets/aiven-ca.pem` as an environment variable and redeploy. If your `DATABASE_URL` already includes a valid `ssl_ca` query parameter, the separate variable is not needed.
+3. Open the web service's **Shell** page in Render and run:
+
+```sh
+python manage_admin.py status
+```
+
+If the output says `Admin table: missing` or `Admin accounts found: 0`, create the first one:
+
+```sh
+python manage_admin.py create
+```
+
+If it lists the username but the password is forgotten or no longer matches, reset only that existing account:
+
+```sh
+python manage_admin.py reset YOUR_EXISTING_USERNAME
+```
+
+Both write commands require typing the displayed Aiven hostname to confirm the target and prompt twice for a new password without echoing it. Creation refuses to add a second admin; reset refuses to create a missing username. Afterward, sign in at `/admin/login`, open `/admin`, confirm the inbox loads, and use the logout button.
+
+Render's dashboard Shell requires a compatible service plan. If Shell is unavailable, run the same tool locally with the Aiven CA file and the URL entered through a hidden prompt (do not put the URL or password in the command):
+
+```powershell
+$env:AIVEN_CA_CERT = 'C:\path\to\aiven-ca.pem'
+python manage_admin.py --prompt-database-url status
+```
+
+If status shows no admin rows, run:
+
+```powershell
+python manage_admin.py --prompt-database-url create
+```
+
+If status lists the existing admin but its password is not known, run instead:
+
+```powershell
+python manage_admin.py --prompt-database-url reset YOUR_EXISTING_USERNAME
+```
+
+Remove the temporary CA path from that PowerShell session when finished with `Remove-Item Env:AIVEN_CA_CERT`.
+
+The CLI's Aiven-only hostname check prevents these commands from targeting the local MySQL URL in `.env`. Aiven recommends TLS with its CA certificate; see its [MySQL connection guidance](https://aiven.io/docs/products/mysql/howto/connect-from-mysql-workbench) and Render's [secret file instructions](https://render.com/docs/configure-environment-variables).
+
 ## Deployment
 
 The application can be deployed as a Flask web service on Render. The MySQL database must be hosted separately by a cloud provider you choose; Render is used for the Flask web service here, and no cloud database provider or credentials are assumed.
