@@ -249,8 +249,8 @@ I'm interested in entry-level opportunities and internships related to AI/ML, Da
 Replace the placeholders below with your real profile links:
 
 - **Portfolio:** Add your deployed portfolio URL
-- **LinkedIn:** `https://www.linkedin.com/in/akash-sharma8017/`
-- **GitHub:** `https://github.com/Akash-sharma07/`
+- **LinkedIn:** https://www.linkedin.com/in/akash-sharma8017/
+- **GitHub:** https://github.com/Akash-sharma07/
 - **Email:** akash8017sharma@gmail.com
 ---
 
