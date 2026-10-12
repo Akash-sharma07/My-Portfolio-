@@ -1,310 +1,97 @@
-# Akash Sharma — Personal Portfolio
+# Akash Sharma — AI/ML Portfolio
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
-  <img src="https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white" alt="SQLAlchemy" />
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-</p>
+This repository contains a personal portfolio for Akash Sharma, an aspiring AI/ML Engineer and Data Scientist. It presents his background, skills, projects, and contact details in the existing responsive design.
 
-<p align="center">
-  A personal portfolio website where I share my journey into Data Science and AI, showcase projects, and make it easy for recruiters and developers to connect with me.
-</p>
+## Portfolio pages
 
-<p align="center">
-  <strong>AI/ML Engineer Aspirant · Data Science · Generative AI</strong>
-</p>
+- **Home:** Introduction, profile photo, selected work, and technology marquee.
+- **About:** Education, learning journey, and credentials.
+- **Skills:** Programming, machine learning, deep learning, Generative AI, analytics, and tools.
+- **Projects:** Three featured projects with individual detail pages.
+- **Talk With Me:** Contact details and a Formspree contact form.
 
----
+## Featured projects
 
-## About the Project
+- **AI Admissions Chatbot — ITM University Gwalior:** Answers prospective student questions using university-specific PDFs and documents. Technologies: Python, LangChain, LangGraph, prompt engineering, and Streamlit.
+- **Recommendify:** Combines book and movie recommendations in one application, including TF-IDF/cosine similarity for books and content-based recommendations using TMDB movie data. Technologies: Python, Pandas, NumPy, Scikit-learn, Flask, and the TMDB API.
+- **Flight Database Analysis:** Extracts and analyzes flight data from MySQL, then presents it in an interactive interface. Technologies: Python, SQL, MySQL, PyMySQL, Pandas, and Streamlit.
 
-This is my personal portfolio website, built with **Flask, Jinja2, HTML, CSS, JavaScript, and MySQL**. It brings my background, technical skills, and hands-on projects together in one place.
+These descriptions and the existing GitHub/live demo URLs come from the portfolio source templates.
 
-The design follows a clean, light, editorial style with readable typography, responsive layouts, and subtle interactions. The aim is to keep the site professional and easy to navigate rather than overload it with unnecessary effects.
+The source templates themselves label the ITM chatbot repository/demo, Flight Management repository, and Recommendify repository/demo URLs as needing confirmation. Their current URLs are preserved in the site; verify or replace them in the corresponding files under `public/projects/` before treating them as final. The ITM demo link is also shown on the homepage.
 
-The site also includes a contact form backed by a database and a private admin area for reviewing submitted messages.
+## Technologies
 
-## What You Can Find Here
+The deployed portfolio itself uses semantic HTML, the existing separate CSS stylesheets, and vanilla JavaScript. Render hosts the static files; Formspree handles new contact submissions after its form ID is configured. No frontend framework or database is required to serve the portfolio.
 
-- **Home:** A short introduction and direct links to my work.
-- **About:** My learning journey from a Commerce background into Data Science and AI.
-- **Skills:** Technologies and concepts I have been learning and practising.
-- **Projects:** A collection of my hands-on applications, with project details and relevant links.
-- **Talk With Me:** A contact form for opportunities, collaborations, feedback, and project discussions.
-- **Admin dashboard:** A protected area for reviewing contact-form submissions.
-- **Responsive design:** Layouts designed to work across desktop, tablet, and mobile screens.
+## Static site on Render
 
-## Featured Projects
+The deployable site is in `public/`. It contains ordinary HTML, separate page stylesheets, JavaScript, images, the favicon, and a `404.html` page. Render serves these files directly; the deployed site does not run Flask, Jinja2, SQLAlchemy, MySQL, PostgreSQL, SQLite, Gunicorn, sessions, or database environment variables.
 
-### 1. AI Admissions Chatbot — ITM University Gwalior
+Create a **Static Site** in Render and connect this repository and the branch you want to publish. Use these settings:
 
-A conversational assistant built to answer prospective students' questions using university-specific PDF information. The application uses LangChain for LLM workflow orchestration, LangGraph for workflow/state management, and Streamlit for the interface.
-
-**Technologies:** Python · LangChain · LangGraph · LLMs · Streamlit
-
-### 2. Flight Database Analysis Application
-
-An interactive application for retrieving and analysing flight data from a MySQL database. Python, SQL, and Pandas are used to query, process, and explore the data through a Streamlit interface.
-
-**Technologies:** Python · MySQL · SQL · PyMySQL · Pandas · Streamlit
-
-### 3. Recommendify — Book & Movie Recommendation Platform
-
-A Flask-based platform that brings book and movie recommendations into one application. The book recommender uses TF-IDF and cosine similarity, while the movie recommender uses movie metadata and a TMDB integration to display movie information and posters.
-
-**Technologies:** Python · Pandas · NumPy · Scikit-learn · TF-IDF · Cosine Similarity · Flask · Jinja2 · TMDB API
-
-> Project descriptions are intended to explain each application's purpose and main technologies. For implementation details, code, and demos, see the corresponding project links on the portfolio when available.
-
-## Technology Stack
-
-| Area | Tools and technologies |
+| Setting | Value |
 |---|---|
-| Backend | Python, Flask |
-| Frontend | HTML5, CSS3, Vanilla JavaScript, Jinja2 |
-| Database | MySQL |
-| ORM / database access | Flask-SQLAlchemy, SQLAlchemy, PyMySQL |
-| Configuration | Environment variables, `python-dotenv` |
-| Production server | Gunicorn |
-| Version control | Git, GitHub |
-| Deployment | Render for the Flask app; a separately hosted MySQL-compatible database |
+| Root Directory | Leave blank |
+| Build Command | Leave blank; there is no build step |
+| Publish Directory | `public` |
+| Environment Variables | None required |
 
-The portfolio uses a conventional Flask-rendered frontend rather than a separate React or frontend framework application.
+Render serves static sites over its CDN. See [Render Static Sites](https://render.com/docs/static-sites) and [Render's first deployment guide](https://render.com/docs/your-first-deploy).
 
-## How It Works
+The original Flask source, templates, models, and requirements are retained in the repository for reference and for any future backend use. They are outside the published `public/` directory. The existing local database and its data were not accessed or changed.
 
-```mermaid
-flowchart TD
-    A[Visitor] --> B[Flask Portfolio on Render]
-    B --> C[Jinja2 Templates]
-    C --> D[HTML, CSS and JavaScript]
-    B --> E[SQLAlchemy]
-    E --> F[(MySQL)]
-    A --> G[Contact Form]
-    G --> B
-    F --> H[Stored Contact Messages]
-    I[Admin Login] --> J[Protected Admin Dashboard]
-    J --> E
-```
+For the static deployment, these backend pieces are no longer needed to serve the portfolio: `app.py` and its Flask routes, `models/` and SQLAlchemy, the MySQL/PyMySQL configuration, `manage_admin.py`, Flask sessions, Gunicorn, and the admin login/dashboard templates. The admin pages and their styles are not copied into `public/`.
 
-The contact form sends the submitted details to the Flask backend. SQLAlchemy handles database operations, and the admin dashboard retrieves stored messages after authentication.
+## Configure the contact form
 
-## Run Locally
+The static form sends **Name, Email, Purpose, and Message** to Formspree over HTTPS. It validates required fields and email format in the browser, includes a honeypot, prevents duplicate submissions while sending, and displays accessible inline success or error feedback. It reports success only after Formspree confirms the request.
 
-### Prerequisites
+The form is intentionally unconfigured until you add your own Formspree form ID. With the placeholder still present, trying to send a message displays a setup warning instead of claiming the message was delivered.
 
-- Python installed on your computer
-- MySQL Server installed and running locally
-- Git
+1. Create or sign in to an account at [Formspree](https://formspree.io/), verify your email, and create a new form.
+2. Open that form's **Integration** page and copy its endpoint. Formspree documents this in [Building an HTML Form](https://help.formspree.io/articles/building-your-form/building-an-html-form).
+3. In `public/contact.html`, find the contact form's `action` attribute:
 
-### 1. Clone the repository
+   ```html
+   action="https://formspree.io/f/YOUR_FORM_ID"
+   ```
 
-```bash
-git clone https://github.com/Akash-sharma07/My-Portfolio-.git
-cd akash-portfolio
-```
+   Replace `YOUR_FORM_ID` with the ID from your Formspree endpoint. Keep the `https://formspree.io/f/` prefix. This is the only endpoint setting; no API key or email password belongs in the website code.
+4. Commit and push the change so Render deploys the configured page.
+5. Submit a test message from the deployed site. Confirm it appears in your Formspree dashboard and adjust the notification recipient/settings there. Formspree stores submissions in that dashboard; they are not sent to the old MySQL database.
 
-### 2. Create and activate a virtual environment
+The browser-side form behavior follows Formspree's [JavaScript/AJAX guidance](https://help.formspree.io/articles/building-your-form/submit-forms-with-javascript-ajax). This repository has not been tested against a real form endpoint because no Formspree ID has been configured.
 
-**Windows PowerShell / Command Prompt:**
+## Editing the portfolio
 
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
+For the Render static site, edit the relevant HTML directly in `public/`:
 
-### 3. Install dependencies
+- `public/index.html`
+- `public/about.html`
+- `public/skills.html`
+- `public/projects.html`
+- `public/contact.html`
+- `public/projects/ai-admissions-chatbot.html`
+- `public/projects/flight-database-analysis.html`
+- `public/projects/recommendify.html`
 
-```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
+Page-specific CSS remains in `public/css/`; shared behavior is in `public/js/main.js`; images are in `public/images/`. Local-root paths in the HTML (such as `/css/base.css`) work from the nested project detail URLs as well as the top-level pages. Keep the page markup and class names when changing content so the current design and responsive behavior continue to apply.
 
-### 4. Install and start MySQL Server
+To preview the published files locally from PowerShell, run `py -m http.server 8000 --directory public` from the repository root, then open `http://localhost:8000`. Python is only used for this optional local preview, not to build or serve the deployed site.
 
-Install MySQL Community Server for Windows using the [official MySQL installation guide](https://dev.mysql.com/doc/refman/8.4/en/windows-installation.html). During setup, create or choose a MySQL account and set its password. Start the installed MySQL service from Windows **Services** if it is not already running. MySQL Workbench is optional; you can also use the `mysql` command-line client.
+## Resume file
 
-### 5. Create the application database
+There is currently no resume PDF in `static/`, so the existing resume controls remain visible but are disabled in the static pages. To enable them, add your PDF as `public/Akash_Sharma_Resume.pdf` and change the two disabled resume links in `public/index.html` and the shared navigation on the other pages to point to `/Akash_Sharma_Resume.pdf`.
 
-Connect to MySQL using Workbench or the command-line client, then run:
+## What changes with static hosting
 
-```sql
-CREATE DATABASE portfolio CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
+- The public static site does not include the admin login or dashboard. A browser-side password screen would not secure private data.
+- New contact submissions are managed in Formspree. Existing messages, if any, remain in the old database and have not been migrated.
+- The Flask application, SQLAlchemy models, and database are not needed to serve the static site. They remain outside `public/` and have not been deleted.
+- Existing GitHub, LinkedIn, email, and project URLs were retained as present in the source templates. No new profile or project URLs were invented.
+- The contact form cannot deliver messages until you replace the Formspree placeholder and deploy that change.
 
-Use the account that will be in `DATABASE_URL` and ensure it has privileges on this database. MySQL recommends `utf8mb4` for Unicode data. See the [MySQL character-set guidance](https://dev.mysql.com/doc/refman/8.4/en/charset.html).
+## Verification status
 
-### 6. Configure environment variables
-
-Create or update `.env` in the project root. Fill in your actual MySQL username and password; do not assume they are `root` or blank:
-
-```env
-DATABASE_URL=mysql+pymysql://YOUR_MYSQL_USER:URL_ENCODED_PASSWORD@localhost:3306/portfolio?charset=utf8mb4
-SECRET_KEY=REPLACE_WITH_A_RANDOM_SECRET
-ADMIN_USERNAME=YOUR_ADMIN_USERNAME
-ADMIN_PASSWORD=YOUR_ADMIN_PASSWORD
-```
-
-Replace every example value with your own. URL-encode special characters in the database username or password (for example, `@` becomes `%40`). Keep your existing `SECRET_KEY` and admin settings; do not commit `.env` to GitHub. `.env` is already excluded by `.gitignore`.
-
-To generate a random Flask secret key, run:
-
-```bash
-python -c "import secrets; print(secrets.token_hex(32))"
-```
-
-Copy the generated value into `SECRET_KEY` in your local `.env` file.
-
-### 7. Install dependencies and start the application
-
-```bash
-python -m pip install -r requirements.txt
-python app.py
-```
-
-On startup, the app connects to the configured MySQL database and creates any missing application tables. It does not drop tables. A new database gets an admin account only when both `ADMIN_USERNAME` and `ADMIN_PASSWORD` are set; the password is stored as a hash.
-
-### 8. Verify the contact form and admin dashboard
-
-Open the local site, submit a valid contact form message, and confirm the success notice appears. In MySQL Workbench or the MySQL client, verify the saved row:
-
-```sql
-USE portfolio;
-SELECT id, name, purpose, created_at FROM message ORDER BY created_at DESC;
-```
-
-Then open `/admin/login`, sign in with the configured admin account, and confirm the message appears in the protected inbox. Records in the original database are not copied by `db.create_all()`, and that database remains untouched. If you need to move records, first make and verify a backup, then copy the `message` and `admin` rows into a staging MySQL database with an explicit migration that stores `created_at` as UTC and preserves each `password_hash` exactly. Compare row counts and sample records, test an admin login, and only then switch production traffic. No data transfer was performed for this change.
-
-## Diagnose Admin Login on Render and Aiven
-
-The login route looks up the submitted username in the `admin` table and checks the submitted password against its Werkzeug hash. The generic sign-in message means either no row matched that username or its hash did not match. At startup, `ADMIN_USERNAME` and `ADMIN_PASSWORD` create an account only when that username is absent; changing those variables does not reset an existing account's hash.
-
-The `manage_admin.py` tool reports whether the Aiven connection works, whether the `admin` table exists, and which usernames are present. It never prints password hashes or accepts a password as a command-line argument. It refuses local/non-Aiven hosts and requires the Aiven CA certificate before any connection.
-
-1. In Aiven Console, download your service's CA certificate.
-2. In the Render web service's **Environment** page, upload it as a secret file (for example, `aiven-ca.pem`). Render makes it available at `/etc/secrets/aiven-ca.pem`; add `AIVEN_CA_CERT=/etc/secrets/aiven-ca.pem` as an environment variable and redeploy. If your `DATABASE_URL` already includes a valid `ssl_ca` query parameter, the separate variable is not needed.
-3. Open the web service's **Shell** page in Render and run:
-
-```sh
-python manage_admin.py status
-```
-
-If the output says `Admin table: missing` or `Admin accounts found: 0`, create the first one:
-
-```sh
-python manage_admin.py create
-```
-
-If it lists the username but the password is forgotten or no longer matches, reset only that existing account:
-
-```sh
-python manage_admin.py reset YOUR_EXISTING_USERNAME
-```
-
-Both write commands require typing the displayed Aiven hostname to confirm the target and prompt twice for a new password without echoing it. Creation refuses to add a second admin; reset refuses to create a missing username. Afterward, sign in at `/admin/login`, open `/admin`, confirm the inbox loads, and use the logout button.
-
-Render's dashboard Shell requires a compatible service plan. If Shell is unavailable, run the same tool locally with the Aiven CA file and the URL entered through a hidden prompt (do not put the URL or password in the command):
-
-```powershell
-$env:AIVEN_CA_CERT = 'C:\path\to\aiven-ca.pem'
-python manage_admin.py --prompt-database-url status
-```
-
-If status shows no admin rows, run:
-
-```powershell
-python manage_admin.py --prompt-database-url create
-```
-
-If status lists the existing admin but its password is not known, run instead:
-
-```powershell
-python manage_admin.py --prompt-database-url reset YOUR_EXISTING_USERNAME
-```
-
-Remove the temporary CA path from that PowerShell session when finished with `Remove-Item Env:AIVEN_CA_CERT`.
-
-The CLI's Aiven-only hostname check prevents these commands from targeting the local MySQL URL in `.env`. Aiven recommends TLS with its CA certificate; see its [MySQL connection guidance](https://aiven.io/docs/products/mysql/howto/connect-from-mysql-workbench) and Render's [secret file instructions](https://render.com/docs/configure-environment-variables).
-
-## Deployment
-
-The application can be deployed as a Flask web service on Render. The MySQL database must be hosted separately by a cloud provider you choose; Render is used for the Flask web service here, and no cloud database provider or credentials are assumed.
-
-1. Push the project to GitHub.
-2. Create a MySQL database with your chosen cloud database provider and follow that provider's instructions for network access and TLS/SSL.
-3. Create a Render **Web Service** and connect your GitHub repository.
-4. Set the build command to `pip install -r requirements.txt`.
-5. Set the start command to `gunicorn app:app` if the Flask instance is named `app` in `app.py`.
-6. Add `DATABASE_URL` using the cloud provider's MySQL connection details, plus the required secret/admin environment variables in the Render dashboard. Use the provider's recommended SSL parameters and URL-encode special characters in credentials.
-7. Deploy and test the portfolio, contact form, and admin login.
-
-**Important:** Use the cloud MySQL host in Render, never `localhost`. Set the production `DATABASE_URL` in Render's environment settings, not in source control. The application accepts `mysql://` or `mysql+pymysql://` provider URLs and preserves provider SSL options. Keep credentials out of GitHub and check the selected provider's backup, network, and TLS requirements.
-
-Useful links:
-
-- [Render Flask deployment guide](https://render.com/docs/deploy-flask)
-- [MySQL 8.4 Reference Manual](https://dev.mysql.com/doc/refman/8.4/en/)
-
-## Project Structure
-
-The following is the intended high-level structure. The exact files in your repository may vary as the project evolves.
-
-```text
-portfolio/
-├── app.py
-├── requirements.txt
-├── .env                  # Local secrets; do not commit
-├── .gitignore
-├── README.md
-├── models/
-│   ├── message.py
-│   └── admin.py
-├── templates/
-│   ├── index.html
-│   ├── about.html
-│   ├── skills.html
-│   ├── projects.html
-│   ├── project_detail.html
-│   ├── contact.html
-│   ├── admin_login.html
-│   └── admin.html
-└── static/
-    ├── css/
-    ├── js/
-    ├── images/
-    └── Akash_Sharma_Resume.pdf
-```
-
-## Security Notes
-
-- Keep `.env` out of Git by using `.gitignore`.
-- Configure separate database URLs for local development and production.
-- Use a strong, unique Flask `SECRET_KEY` in production.
-- Store admin passwords as secure hashes; never place passwords in HTML or JavaScript.
-- Protect admin routes with server-side authentication.
-- Validate contact-form input and handle database errors without displaying sensitive exception details to visitors.
-- Do not commit private keys, database credentials, or personal information submitted through the contact form.
-
-## About Me
-
-I'm Akash Sharma, a B.Com graduate from Jiwaji University, Gwalior, building practical skills in **Data Science, Machine Learning, Deep Learning, and Generative AI** through hands-on practice and projects.
-
-I'm interested in entry-level opportunities and internships related to AI/ML, Data Science, and Generative AI, and I'm always keen to learn from people building useful technology.
-
-## Connect With Me
-
-Replace the placeholders below with your real profile links:
-
-- **Portfolio:** Add your deployed portfolio URL
-- **LinkedIn:** https://www.linkedin.com/in/akash-sharma8017/
-- **GitHub:** https://github.com/Akash-sharma07/
-- **Email:** akash8017sharma@gmail.com
----
-
-<p align="center">
-  Built with Python, Flask, MySQL, and a lot of learning.
-</p>
+The static pages were generated from the existing public templates and assets. Local checks should confirm there is no Jinja syntax in `public/`, that local page and asset links resolve, and that the public directory contains no Flask admin pages or environment files. A real Formspree submission and the live Render deployment cannot be verified until you configure the endpoint and deploy the static site.
