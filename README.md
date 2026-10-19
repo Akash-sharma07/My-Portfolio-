@@ -1,8 +1,10 @@
 # Akash Sharma | AI/ML & Data Science
 
-Hi, I'm Akash Sharma. I studied Commerce at Jiwaji University in Gwalior, then became interested in how data and software can solve practical problems. I'm now building my skills in Data Science, Machine Learning, and Generative AI through coursework and hands-on projects.
+Hi, I'm Akash Sharma. I build practical projects across AI/ML, data science, and application development. My recent work includes a university admissions chatbot grounded in institutional documents, a book and movie recommendation platform, and an application for exploring flight data.
 
-I'm looking for entry-level AI/ML roles and internships where I can keep learning and contribute to useful work.
+I enjoy taking an idea from data exploration and model experimentation through to a usable application. I'm continuing to deepen my skills in Python, Machine Learning, and Generative AI, and I'm open to AI/ML and Data Science roles and internships.
+
+**Portfolio:** [akashsharma-portfolio.onrender.com](https://akashsharma-portfolio.onrender.com/)
 
 ## Projects
 
@@ -38,6 +40,7 @@ An interactive application for querying and exploring flight data stored in MySQ
 
 - **Email:** [akash8017sharma@gmail.com](mailto:akash8017sharma@gmail.com)
 - **GitHub:** [github.com/Akash-sharma07](https://github.com/Akash-sharma07)
+- **Portfolio:** [akashsharma-portfolio.onrender.com](https://akashsharma-portfolio.onrender.com/)
 
 ## About this website
 
