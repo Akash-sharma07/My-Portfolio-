@@ -73,9 +73,3 @@ The form shows a setup notice while the placeholder remains. It only shows a suc
 ### Local preview
 
 From the repository root, run `py -m http.server 8000 --directory public`, then open `http://localhost:8000`. This is only for previewing the static files locally; Render does not need Python to serve them.
-
-## A few notes
-
-- The static site does not have the old admin login or dashboard. New contact messages are handled in Formspree; existing database messages have not been moved.
-- There is no resume PDF in the repository right now, so the resume links are disabled. Add `public/Akash_Sharma_Resume.pdf` to make the download available.
-- Some existing project repository and demo links in the site were marked for confirmation in the original templates. I've kept those URLs as they were; they should be checked before sharing as final links.
